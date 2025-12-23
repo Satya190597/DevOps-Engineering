@@ -22,13 +22,20 @@ A connection is identified by 4 properties.
 - DestinationIP-DestinationPort.
 
 ## How TCP Connection Work?
- - App 1 on 10.0.0.1 want to send data to App X on 10.0.0.2.
+ - App 1 (10.0.0.1) on port **5555** want to send data to App X (10.0.0.2) on port **22**.
  - App 1 sends SYN to App X to synchronous sequence number.
  - App X sends SYN/ACK to synchronous it's sequence number.
  - App 1 ACKs App X SYN.
  - Three way handshake.
 
 ![TCP Three Way Handshake](./assets/images/tcp-connection-flow-three-way-handshake.png)
+
+### Sending Data.
+- App 1 sends data to App X.
+- App 1 encapsulate the data in a segment and send it.
+- App X acknowledge the segment.
+
+![TCP Sending Data](./assets/images/tcp-sending-data.png)
 
 ## ✅ TCP Pros
 - **Guarantee** Delivery.
