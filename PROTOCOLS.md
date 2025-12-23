@@ -21,6 +21,8 @@ A connection is identified by 4 properties.
 - SourceIP-SourcePort.
 - DestinationIP-DestinationPort.
 
+![TCP Three Way Handshake](./assets/images/tcp-connection-flow-three-way-handshake.png)
+
 ## How TCP Connection Work?
  - App 1 on 10.0.0.1 want to send data to App X on 10.0.0.2.
  - App 1 sends SYN to App X to synchronous sequence number.
