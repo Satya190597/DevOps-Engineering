@@ -60,6 +60,33 @@ Flow control refers to the mechanism that ensures a sender does not **overwhelm*
 
 ![TCP Flow Control](./assets/images/tcp-flow-control.png)
 
+- When TCP segments arrive they are put in **receiver's buffer**.
+- If we kept sending data the receiver will be overwhelmed, and segments will be dropped. Hence receiver notify sender how much it can handle.
+
+### TCP Window Size
+TCP Window Size refers to the amount of data (in bytes) that a TCP sender is **allowed to transmit without receiving an acknowledgment** from the receiver. It is a critical part of TCP’s flow control mechanism.
+- Default Limit: Without extensions, the maximum window size is 65,535 bytes.
+- Dynamic Nature: The window size can change during a connection based on network conditions and receiver buffer availability.
+
+![TCP Flow Control](./assets/images/tcp-window-size.png)
+
+![TCP Flow Control](./assets/images/tcp-window-size-ack.png)
+
+### Sliding Window.
+The sliding window mechanism is the core of TCP’s flow control. It ensures that the sender does not transmit more data than the receiver can handle, while keeping the network link efficiently utilized.
+#### How Sliding Window Works.
+- Window Concept:
+    - The receiver advertises a window size (in bytes) indicating how much data it can accept without acknowledgment.
+- Sliding Behavior:
+    - As the receiver acknowledges data, the window “slides” forward, allowing the sender to transmit new data.
+    - This dynamic adjustment ensures continuous data flow without overwhelming the receiver.
+- Key Components:
+    - Send Window: Tracks unacknowledged data and new data that can be sent.
+    - Receive Window: Advertised by the receiver to control flow.
+    - Acknowledgments: Move the window forward as data is successfully received.
+ 
+ ![TCP Sliding Window](./assets/images/tcp-sliding-window.png)
+
 
 ## ✅ TCP Pros
 - **Guarantee** Delivery.
