@@ -96,7 +96,23 @@ TCP originally allowed a maximum window size of **65,535 bytes** (16-bit field i
     - Effective Window Size = **Advertised Window × (2^Scale Factor)**.
 - **Benefit:** Enables TCP to use windows up to 1 GB, improving performance on high-bandwidth, high-latency path
 
+## TCP Connection Termination (Close)
+Closing a TCP connection is a graceful process that ensures all data is transmitted and acknowledged before the connection ends. It uses a four-step handshake involving the **FIN** and **ACK** flags.
 
+### Steps in TCP Close
+**FIN from Initiator**
+- The side that wants to close sends a FIN (Finish) segment to indicate it has no more data to send.
+
+**ACK from Receiver**
+- The other side acknowledges the FIN with an ACK, but can still send its remaining data.
+
+**FIN from Receiver**
+- When the receiver finishes sending its data, it sends its own FIN segment.
+
+**ACK from Initiator**
+- The initiator acknowledges this FIN with an ACK, completing the termination.
+
+ ![TCP Close](./assets/images/tcp-close.png)
 
 ## ✅ TCP Pros
 - **Guarantee** Delivery.
