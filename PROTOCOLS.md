@@ -51,11 +51,14 @@ Flow control refers to the mechanism that ensures a sender does not **overwhelm*
 - B acknowledges segment 1.
 - A sends segment 2 to B.
 - B  acknowledges segment 2.
-- The entire process is extremely slow.
+- **The entire process is extremely slow.**
 
 ![TCP Flow Control Scenario One](./assets/images/tcp-slow-flow-control.png)
 
+### Flow Control Example - Scenario 2 (Sender Sends Multiple Segment Parallelly).
+- A can send multiple segments and B can acknowledge all in 1 ACK.
 
+![TCP Flow Control](./assets/images/tcp-flow-control.png)
 
 
 ## ✅ TCP Pros
