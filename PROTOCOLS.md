@@ -37,6 +37,27 @@ A connection is identified by 4 properties.
 
 ![TCP Sending Data](./assets/images/tcp-sending-data.png)
 
+## Flow Control
+Flow control refers to the mechanism that ensures a sender does not **overwhelm** a receiver by sending more data than the receiver can process or store in its buffer. It is essential for maintaining reliable communication and preventing packet loss due to buffer overflow.
+
+### How TCP Implements Flow Control.
+- **Sliding Window Protocol:** TCP uses a dynamic sliding window mechanism. The receiver advertises a window size (called the receive window) to the sender, indicating how much data it can accept without acknowledgment.
+- **Advertised Window:** This value is sent in the TCP header and updated as the receiver processes data. The sender must respect this limit.
+- **Dynamic Adjustment:** As the receiver consumes data and frees buffer space, it updates the window size, allowing the sender to transmit more data.
+
+### Flow Control Example - Scenario 1 (Sender Sends Each Segment Synchronously And Wait For Acknowledgment).
+- A wants to send 10 segment to B.
+- A sends segment 1 to B.
+- B acknowledges segment 1.
+- A sends segment 2 to B.
+- B  acknowledges segment 2.
+- The entire process is extremely slow.
+
+![TCP Flow Control Scenario One](./assets/images/tcp-slow-flow-control.png)
+
+
+
+
 ## ✅ TCP Pros
 - **Guarantee** Delivery.
 - Much more secure than UDP - (No one can send data without prior knowledge).
