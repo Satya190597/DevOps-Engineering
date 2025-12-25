@@ -87,6 +87,16 @@ The sliding window mechanism is the core of TCP’s flow control. It ensures tha
  
  ![TCP Sliding Window](./assets/images/tcp-sliding-window.png)
 
+ ### Window Scaling.
+TCP originally allowed a maximum window size of **65,535 bytes** (16-bit field in the TCP header). This was sufficient for older networks, but on high-speed, high-latency networks (e.g., gigabit links), this limit severely restricts throughput because the sender cannot keep the pipeline full.
+- **Purpose:** Window Scaling is an extension defined in **RFC 1323** that allows TCP to support larger window sizes beyond 65 KB.
+- **How It Works:**
+    - During the TCP three-way handshake, both sides can negotiate a Window Scale factor.
+    - This factor is a power of 2 (from 0 to 14) and is applied as a left shift to the advertised window size.
+    - Effective Window Size = **Advertised Window × (2^Scale Factor)**.
+- **Benefit:** Enables TCP to use windows up to 1 GB, improving performance on high-bandwidth, high-latency path
+
+
 
 ## ✅ TCP Pros
 - **Guarantee** Delivery.
